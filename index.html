@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#0e1116">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Digital Roadbook</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="vendor/maplibre-gl.css">
+<link rel="stylesheet" href="css/app.css?v=0.9.2">
+</head>
+<body>
+
+
+<section id="home" class="screen">
+  <div class="home-box">
+    <img src="icons/icon-192.png" alt="" class="home-logo">
+    <h1>Digital Roadbook</h1>
+    <p class="muted" data-i18n="homeHint"></p>
+    <input id="codeIn" class="big-in" data-i18n-ph="codePh" autocomplete="off" autocapitalize="characters" spellcheck="false">
+    <input id="crewIn" class="big-in hidden" data-i18n-ph="crewPh" inputmode="numeric">
+    <button id="openBtn" class="btn primary big" data-i18n="open"></button>
+    <div id="homeMsg" class="msg"></div>
+    <label class="link"><span data-i18n="openFile"></span><input id="fileIn" type="file" accept=".zip,.drb,.json" hidden></label>
+    <button id="resumeBtn" class="btn hidden" data-i18n="resume"></button>
+  </div>
+  <div class="ver">v<span class="appver"></span></div>
+</section>
+
+
+<section id="run" class="screen hidden">
+  <header id="hdr">
+    <button id="menuBtn" class="hbtn" aria-label="Menu">☰</button>
+    <button id="secTitle" class="sec-title">–</button>
+    <span id="gpsDot" class="gdot" title="GPS"></span>
+    <span id="clock" class="clock">--:--:--</span>
+  </header>
+
+  <section id="trips">
+    <button class="trip" data-k="prog"><small data-i18n="prog"></small><b id="tProg">0.00</b></button>
+    <button class="trip part" data-k="part"><small data-i18n="part"></small><b id="tPart">0.00</b></button>
+    <button class="trip reg" data-k="reg"><small data-i18n="reg"></small><b id="tReg">0.00</b></button>
+  </section>
+
+  <section id="mapWrap">
+    <div id="map"></div>
+    <div id="banner" class="banner hidden"></div>
+    <div id="speed" class="speed hidden"><b id="spdVal">–</b><small>km/h</small></div>
+    <div class="map-btns">
+      <button id="layerBtn" class="mbtn" title="Mappa / ortofoto">🗺</button>
+      <button id="viewBtn" class="mbtn" title="Vista navigatore (3D) / nord in alto (2D)">3D</button>
+      <button id="followBtn" class="mbtn on" title="Segui la posizione">◎</button>
+      <button id="zoomIn" class="mbtn" title="Avvicina">＋</button>
+      <button id="zoomOut" class="mbtn" title="Allontana">－</button>
+    </div>
+  </section>
+
+  <section id="boxes">
+    <div id="boxMain" class="box big"></div>
+    <div id="boxNext" class="box small"></div>
+    <div id="nx" class="nx"></div>
+    <div class="box-nav">
+      <button id="boxPrev" class="nbtn" title="Allinea al box precedente">◀</button>
+      <button id="boxFwd" class="nbtn" title="Allinea al box successivo">▶</button>
+    </div>
+  </section>
+</section>
+
+
+<div id="sheet" class="sheet hidden">
+  <div class="sheet-card">
+    <div class="sheet-head"><b id="sheetTitle"></b><button class="x" data-close>✕</button></div>
+    <div id="sheetBody" class="sheet-body"></div>
+  </div>
+</div>
+
+<script src="vendor/maplibre-gl.js"></script>
+<script src="vendor/jszip.min.js"></script>
+<script type="module" src="js/app.js?v=0.9.2"></script>
+</body>
+</html>
